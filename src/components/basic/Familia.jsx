@@ -1,11 +1,11 @@
-import React, { cloneElement } from "react";
+import React, { cloneElement, Children } from "react";
 
 const Familia = (props) => {
-  const { children, sobrenome } = props;
+  const { children } = props;
   return (
     <div>
-      {React.Children.map(children, (child) => {
-        return cloneElement(child, props);
+      {Children.map(children, (child, key) => {
+        return cloneElement(child, { ...props, key });
       })}
     </div>
   );
